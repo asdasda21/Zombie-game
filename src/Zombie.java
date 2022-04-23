@@ -41,7 +41,7 @@ public class Zombie {
     }
 
     public boolean esOABPositivo() {
-        return getTipoSangre().equals("O+") || getTipoSangre().equals("AB+");
+        return getTipoSangre().equalsIgnoreCase("O+") || getTipoSangre().equalsIgnoreCase("AB+");
     }
 
     public boolean esNacidoDespuesDel2000() {
