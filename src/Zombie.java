@@ -41,22 +41,16 @@ public class Zombie {
     }
 
     public boolean esOABPositivo() {
-        if (getTipoSangre().equals("O+") || getTipoSangre().equals("AB+")) {
-            return true;
-        }
-        return false;
+        return getTipoSangre().equals("O+") || getTipoSangre().equals("AB+");
     }
 
     public boolean esNacidoDespuesDel2000() {
-        if (getFechaNacimiento()[2] > 2000) {
-            return true;
-        }
-        return false;
+        return getFechaNacimiento()[2] > 2000;
     }
 
     public static void reducirMitadSalud(ArrayList<Zombie> zombies) {
-        for (int i = 0; i < zombies.size(); i++) {
-            zombies.get(i).setSalud(zombies.get(i).getSalud() / 2);
+        for (Zombie zombie : zombies) {
+            zombie.setSalud(zombie.getSalud() / 2);
         }
     }
 
@@ -71,8 +65,8 @@ public class Zombie {
 
     public static String promedioSalud(ArrayList<Zombie> zombies) {
         int suma = 0;
-        for (int i = 0; i < zombies.size(); i++) {
-            suma += zombies.get(i).getSalud();
+        for (Zombie zombie : zombies) {
+            suma += zombie.getSalud();
         }
         double promedio = suma / zombies.size();
         return "El promedio de salud de los zombies creados es: " + promedio;
